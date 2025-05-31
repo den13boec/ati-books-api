@@ -8,6 +8,6 @@ class Book(Base):
     }
 
     id = Column(Integer, primary_key=True, index=True, comment="Уникальный идентификатор")
-    title = Column(String, nullable=False, comment="Название")
+    title = Column(String, nullable=False, comment="Название книги")
     author = Column(String, nullable=False, comment="Имя автора")
     published_year = Column(Integer, nullable=False, comment="Год публикации")
