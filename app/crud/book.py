@@ -11,12 +11,12 @@ def create_book(db: Session, book: BookCreate) -> Book:
     return db_book
 
 
-def get_books(db: Session, author: str | None = None):
+def get_books(db: Session, author: str | None = None) -> list[Book]:
     query = db.query(Book)
     if author:
         query = query.filter(Book.author.ilike(author))
     return query.all()
 
 
-def get_book_by_id(db: Session, book_id: int):
+def get_book_by_id(db: Session, book_id: int) -> Book | None:
     return db.query(Book).filter(Book.id == book_id).first()
